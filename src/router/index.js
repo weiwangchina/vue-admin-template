@@ -56,6 +56,83 @@ export const constantRoutes = [
   },
 
   {
+    path: '/attendance/index',
+    component: Layout,
+    children: [
+      {
+        path: 'attendance/index',
+        name: 'Form',
+        component: () => import('@/views/attendance/index'),
+        meta: { title: '考勤首页', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/attendance/persons/list',
+    component: Layout,
+    children: [
+      {
+        path: 'attendance/persons/list',
+        name: 'Form',
+        component: () => import('@/views/attendance/persons/list'),
+        meta: { title: '员工管理', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/attendance/list',
+    component: Layout,
+    children: [
+      {
+        path: 'attendance/list',
+        name: 'Form',
+        component: () => import('@/views/attendance/list'),
+        meta: { title: '考勤管理', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/attendance/repass',
+    component: Layout,
+    children: [
+      {
+        path: 'repass',
+        name: 'Form',
+        component: () => import('@/views/attendance/repass'),
+        meta: { title: '修改密码', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/attendance/capturerecord',
+    component: Layout,
+    children: [
+      {
+        path: 'capturerecord',
+        name: 'Form',
+        component: () => import('@/views/attendance/capturerecord'),
+        meta: { title: '抓拍记录', icon: 'form' }
+      }
+    ]
+  },
+  {
+    path: '/attendance/logs',
+    component: Layout,
+    children: [
+      {
+        path: 'repass',
+        name: 'Form',
+        component: () => import('@/views/attendance/logs'),
+        meta: { title: '日志记录', icon: 'form' }
+      }
+    ]
+  },
+
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',

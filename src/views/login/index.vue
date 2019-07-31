@@ -41,11 +41,11 @@
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:40%;margin-bottom:30px;" @click.native.prevent="handleLogin">找回密码</el-button>
+      <el-button :loading="loading" type="primary" style="width:40%;margin-bottom:30px;" @click.native.prevent="repassPage">找回密码</el-button>
       <el-button :loading="loading" type="primary" style="width:50%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
 
       <div class="tips">
-        <span style="margin-right:20px; color:gray">请妥善保存个人信息</span>
+        <span style="margin-right:20px; color:gray">忘记密码?</span>
       </div>
 
     </el-form>
@@ -59,7 +59,7 @@ export default {
   name: 'Login',
   data() {
     const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value)) {
+      if (value.length < 5) { // if (!validUsername(value)) {
         callback(new Error('请在这里输入手机号'))
       } else {
         callback()
@@ -106,11 +106,14 @@ export default {
       })
     },
     handleLogin() {
-      this.$message('logining ... !')
+      this.$message('登录中 ...')
+      console.info("login in");
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm).then(() => {
+            this.$message('登录成功 ...')
+            console.info("login success");
             this.$router.push({ path: this.redirect || '/' })
             this.loading = false
           }).catch(() => {
@@ -121,6 +124,9 @@ export default {
           return false
         }
       })
+    },
+    repassPage() {
+      this.$router.push({ path: '/attendance/repass' });
     }
   }
 }

@@ -20,6 +20,8 @@ service.interceptors.request.use(
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation
       config.headers['X-Token'] = getToken()
+      config.headers['version'] = 'V1.0.0'
+      config.headers['token'] = '1234567890'
     }
     return config
   },

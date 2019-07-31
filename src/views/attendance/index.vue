@@ -6,6 +6,7 @@
       <el-col :xs="6" :sm="6" :md="4" :lg="3" :xl="6"><div class="grid-content bg-purple-light">本月</div></el-col>
       <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="6"><div class="grid-content bg-purple-light">上月</div></el-col>
     </el-row>
+    <div class="dashboard-text">name: {{ name }}</div>
   </div>
   
 </template>
